@@ -1,44 +1,43 @@
 package uy.edu.cei.generala.client.ui.panel;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DiePanel extends JPanel {
 
-	private BufferedImage image;
-	private int value = 1;
-
+	public ImageIcon iconImagen;
+	private JLabel lblNewLabel;
+	private JButton btnNewButton; 
+	private DicePanel dice;
+	
 	/**
 	 * Create the panel.
 	 */
 	public DiePanel() {
-		setBackground(Color.RED);
 		setLayout(null);
-		try {
-			URL url = DiePanel.class.getResource("/assets/dice-sprite.jpg");
-			image = ImageIO.read(url);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(10, 0, 71, 71);
+		add(lblNewLabel_1);		
+		this.setValue();
 	}
 
-	public void setValue(int value) {
-		this.value = value - 1;
-		this.repaint();
+	public void setValue() {	
+		
+		
+		iconImagen = new ImageIcon(DiePanel.class.getResource("/images/img1.png"));
+		lblNewLabel.setIcon(iconImagen);
+		
 	}
 
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		Integer value = -63 * this.value;
-		g.drawImage(image, value, 0, this);
+	public void animate() {
+		iconImagen = new ImageIcon(getClass().getResource("images/dados-01.gif"));
+		lblNewLabel.setIcon(iconImagen);
 	}
-
 }

@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 
-import uy.edu.cei.generala.client.ui.panel.DicePanel;
+import uy.edu.cei.generala.client.ui.panel.DiePanel;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 public class TestDicePanel {
 
 	private JFrame frame;
-	private DicePanel dicePanel;
+	private DiePanel dicePanel;
 
 	/**
 	 * Launch the application.
@@ -61,7 +61,7 @@ public class TestDicePanel {
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 		
-		dicePanel = new DicePanel();
+		dicePanel = new DiePanel();
 		sl_panel.putConstraint(SpringLayout.NORTH, dicePanel, 121, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, dicePanel, 10, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, dicePanel, -55, SpringLayout.SOUTH, panel);
