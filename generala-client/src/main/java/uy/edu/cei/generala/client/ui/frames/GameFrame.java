@@ -1,6 +1,6 @@
 package uy.edu.cei.generala.client.ui.frames;
 
-//PRUEBaaa
+
 
 
 import java.awt.BorderLayout;
