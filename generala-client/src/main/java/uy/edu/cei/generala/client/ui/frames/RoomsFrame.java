@@ -1,7 +1,10 @@
 package uy.edu.cei.generala.client.ui.frames;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,7 +35,16 @@ public class RoomsFrame extends JFrame {
 	 */
 	public RoomsFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		Toolkit myscreen = Toolkit.getDefaultToolkit();
+		Dimension d= myscreen.getScreenSize();
+		int heightP = d.height;
+		int widthP = d.width;
+		setSize(widthP/2,heightP/2);
+		setLocation(widthP/4,heightP/4);
+		setResizable(false);
+		setTitle("Generala Mattel®");
+		Image miIcono = myscreen.getImage("src/main/resources/assets/iconDie.png");
+		setIconImage(miIcono);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
