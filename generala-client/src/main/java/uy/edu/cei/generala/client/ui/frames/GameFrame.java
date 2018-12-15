@@ -1,5 +1,7 @@
 package uy.edu.cei.generala.client.ui.frames;
 
+//PRUEBA
+
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
