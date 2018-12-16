@@ -132,6 +132,7 @@ public class IndexFrame extends JFrame {
 
 				// ACA VA LA VALIDACION DE LA CONTRASEÑA
 				RoomsFrame gotoroom = new RoomsFrame();
+				gotoroom.setVisible(true);
 			}
 		});
 		sl_login.putConstraint(SpringLayout.NORTH, btnLoginConf, 13, SpringLayout.SOUTH, textField_1);

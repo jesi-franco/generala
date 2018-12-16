@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import uy.edu.cei.generala.client.ui.panel.TablePanel;
+
 public class RoomsFrame extends JFrame {
 
 	private JPanel contentPane;
@@ -49,6 +51,8 @@ public class RoomsFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		TablePanel roomsAndTables = new TablePanel();
+		roomsAndTables.setVisible(true);
 	}
 
 }
