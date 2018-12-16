@@ -1,6 +1,5 @@
 package uy.edu.cei.generala.client.ui.frames;
 
-//prueba push
 
 
 import java.awt.BorderLayout;
@@ -23,6 +22,8 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.SpringLayout;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GameFrame extends JFrame {
 
@@ -83,6 +84,10 @@ public class GameFrame extends JFrame {
 		layeredPane.add(panel);
 		
 		JButton btnRendirme = new JButton("Rendirme");
+		btnRendirme.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnRendirme.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
 		btnRendirme.setForeground(Color.WHITE);
 		btnRendirme.setBackground(Color.RED);
