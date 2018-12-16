@@ -7,37 +7,49 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+import javax.swing.JLayeredPane;
+import java.awt.CardLayout;
+import java.awt.Dimension;
 
 public class DiePanel extends JPanel {
 
 	public ImageIcon iconImagen;
-	private JLabel lblNewLabel;
-	private JButton btnNewButton; 
-	private DicePanel dice;
+	public JLabel lblNewLabel; 
 	
 	/**
 	 * Create the panel.
 	 */
 	public DiePanel() {
 		setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(10, 0, 71, 71);
-		add(lblNewLabel_1);		
-		this.setValue();
-	}
+		setSize(new Dimension(72, 72));
 
-	public void setValue() {	
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(10, 0, 71, 71);
+		add(lblNewLabel);
+
+		this.setValue(6);
 		
-		
-		iconImagen = new ImageIcon(DiePanel.class.getResource("/images/img1.png"));
+	}
+	
+	
+	
+	
+	
+
+	public void setValue(int value) {
+		iconImagen = new ImageIcon(getClass().getResource("/uy/edu/cei/generala/client/ui/panel/gifs/img" + value + ".png"));
 		lblNewLabel.setIcon(iconImagen);
-		
 	}
 
 	public void animate() {
-		iconImagen = new ImageIcon(getClass().getResource("images/dados-01.gif"));
+		iconImagen = new ImageIcon(getClass().getResource("/uy/edu/cei/generala/client/ui/panel/gifs/dados-01.gif"));
 		lblNewLabel.setIcon(iconImagen);
 	}
+	
+
+
 }
