@@ -33,20 +33,30 @@ public class UserModel implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+	@Column(name = "name")
+	private String name;
 	@Column(unique = true)
 	private String username;
 	private String password;
-	@Column(name = "door_number")
-	private String doorNumber;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "won_matches")
+	private int wonMatches;
+	@Column(name = "lost_matches")
+	private int lostMatches;
+	@Column(name = "tie_matches")
+	private int tieMatches;
+	@Column(name = "coins")
+	private int virtualCoins;
 	
-	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	/*@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_user")
-	private List<Address> addresses;
+	private List<Address> addresses;*/
 	
 	public UserModel() {
 	}
 
-	public UserModel(String username, String password) {
+	public UserModel(String username, String password, String name, String email) {
 		this.username = username;
 		this.password = password;
 	}
@@ -76,12 +86,6 @@ public class UserModel implements Serializable {
 		this.password = password;
 	}
 
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
+	
 
 }
