@@ -176,17 +176,10 @@ public class DicePanel extends JPanel implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if (e.getSource()==btnNewButton) {
-			setTitle("Saldrá en 3 segundos");
-			try{
-			Thread.sleep(3000);
-			System.exit(0);
-			} catch(Exception excep) {
-			System.exit(0);
-			}
-			}
+		
 	}
+
 
 }

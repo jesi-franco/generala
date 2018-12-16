@@ -19,6 +19,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.border.SoftBevelBorder;
+
+import uy.edu.cei.generala.client.ui.panel.DicePanel;
+import uy.edu.cei.generala.client.ui.panel.DiePanel;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.SpringLayout;
 import javax.swing.JTextArea;
@@ -28,6 +32,7 @@ import java.awt.event.ActionEvent;
 public class GameFrame extends JFrame {
 
 	private JPanel contentPane;
+	private DicePanel dicepanel;
 
 	/**
 	 * Launch the application.
@@ -83,9 +88,18 @@ public class GameFrame extends JFrame {
 		panel.setBounds(112, 11, 429, 323);
 		layeredPane.add(panel);
 		
+		dicepanel = new DicePanel();
+		dicepanel.setVisible(true);
+		dicepanel = new DicePanel();
+		panel.add(dicepanel);
+		
+		
+		
 		JButton btnRendirme = new JButton("Rendirme");
 		btnRendirme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//almacenar como partida perdida primero
+				System.exit(0);
 			}
 		});
 		btnRendirme.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));

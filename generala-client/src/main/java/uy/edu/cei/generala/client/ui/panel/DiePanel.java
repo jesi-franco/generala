@@ -45,4 +45,9 @@ public class DiePanel extends JPanel {
 		iconImagen = new ImageIcon(getClass().getResource("/uy/edu/cei/generala/client/ui/panel/gifs/dados-01.gif"));
 		lblNewLabel.setIcon(iconImagen);
 	}
+
+	public void refreshDice() {
+		// TODO Auto-generated method stub
+		
+	}
 }
