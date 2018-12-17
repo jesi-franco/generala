@@ -30,11 +30,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 
 public class GameFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JPanel panel; 
 	private DicePanel dicepanel;
 	private DicePanel dicepanel_1;
 
@@ -243,20 +243,14 @@ public class GameFrame extends JFrame {
 		sl_panel_4.putConstraint(SpringLayout.EAST, panel_7, 7, SpringLayout.EAST, panel_6);
 		panel_4.add(panel_7);
 		
-//		JPanel panel = new JPanel();
-//		panel.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-//		panel.setBackground(Color.WHITE);
-//		panel.setBounds(112, 11, 429, 323);
-//		layeredPane.add(panel);
-		
-		panel = new JPanel(); 
-		layeredPane.add(panel);
-		panel.setBounds(112, 11, 435, 323);
-		panel.setVisible(true);
+		JPanel panel_5 = new JPanel();
+		panel_5.setBounds(112, 11, 435, 335);
+		layeredPane.add(panel_5);
+		panel_5.setLayout(null);
 		dicepanel_1 = new DicePanel();
-		panel.add(dicepanel_1);
-		dicepanel_1.setBounds(112, 11, 435, 323);
-		dicepanel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_5.add(dicepanel_1);
+		dicepanel_1.setBounds(0, 0, 435, 335);
+		dicepanel_1.setLayout(null);
 		
 	}
 }
