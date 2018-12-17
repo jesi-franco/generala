@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
@@ -19,18 +21,19 @@ public class DiePanel extends JPanel {
 
 	public ImageIcon iconImagen;
 	private JLabel lblNewLabel;
+	private boolean selected;
 
 	/**
 	 * Create the panel.
 	 */
 	public DiePanel() {
 		setLayout(null);
-
+		this.selected = false;
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(10, 11, 106, 71);
 		add(lblNewLabel);
-//		this.animate();
-//		this.setValue(6);
+		this.setValue(6);
+
 
 	}
 
@@ -38,6 +41,13 @@ public class DiePanel extends JPanel {
 
 		iconImagen = new ImageIcon(
 				getClass().getResource("/uy/edu/cei/generala/client/ui/panel/gifs/img" + value + ".png"));
+		lblNewLabel.setIcon(iconImagen);
+	}
+	
+	public void setValueSelected(int value) {
+
+		iconImagen = new ImageIcon(
+				getClass().getResource("/uy/edu/cei/generala/client/ui/panel/gifs/" + value + ".png"));
 		lblNewLabel.setIcon(iconImagen);
 	}
 
@@ -48,6 +58,33 @@ public class DiePanel extends JPanel {
 
 	public void refreshDice() {
 		// TODO Auto-generated method stub
+
+	}
+	
+	public void setSelected(boolean design)
+	{
+		this.setSelected(design); 
 		
 	}
+
+	public boolean isSelected(DiePanel die) {
+		if (die.selected == true) {
+			return selected;
+		} else
+			return false;
+
+	}
+
+	public boolean mouseClicked() {
+		
+		this.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+
 }
