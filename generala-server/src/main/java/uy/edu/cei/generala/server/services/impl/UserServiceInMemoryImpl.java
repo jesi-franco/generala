@@ -23,13 +23,15 @@ public class UserServiceInMemoryImpl implements UserService {
 	private UserServiceInMemoryImpl() {
 		this.users = new TreeMap<>();
 
-		users.put("pepe", new UserModel("pepe", "password"));
-		users.put("juan", new UserModel("juan", "password"));
-		users.put("jose", new UserModel("jose", "password"));
+		users.put("pepe", new UserModel("pepe", "password","pepe","unemail"));
+		users.put("juan", new UserModel("juan", "password","juan","unemail"));
+		users.put("jose", new UserModel("jose", "password","jose","unemail"));
+		users.put("Admin", new UserModel("admin","admin","admin","unemail"));
+				
 	}
 
 	@Override
-	public UserModel findUserByUsername(String username) {
+	public UserModel findUserByUsername(String username,String password) {
 		return this.users.get(username);
 	}
 

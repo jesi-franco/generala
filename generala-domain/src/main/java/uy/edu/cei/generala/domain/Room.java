@@ -17,12 +17,12 @@ public class Room implements Serializable, Remote {
 	private LinkedList<Table> tables;
 
 	
-	public static Room createRooms(String t, Integer b) {
+	public static Room initializeRooms(String name, Integer chips) {
 		Room room = new Room();
 		room.id = UUID.randomUUID();
 		room.tables = new LinkedList<>();
-		room.name = t;
-		room.chips = b;
+		room.name = name;
+		room.chips = chips;
 		return room;
 
 	}

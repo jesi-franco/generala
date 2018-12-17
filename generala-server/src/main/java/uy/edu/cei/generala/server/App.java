@@ -16,7 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import uy.edu.cei.generala.common.server.Server;
-import uy.edu.cei.generala.domain.Address;
+import uy.edu.cei.generala.domain.Room;
 import uy.edu.cei.generala.domain.UserModel;
 
 /**
@@ -43,12 +43,7 @@ public class App {
 		userModel.setUsername("pepe");
 		userModel.setPassword("password");
 
-		Address address = new Address();
-		address.setAddressLine1("line 1");
-
-		List<Address> addresses = new ArrayList<>();
-		addresses.add(address);
-		userModel.setAddresses(addresses);
+		
 
 		em.persist(userModel);
 		em.getTransaction().commit();
@@ -85,9 +80,17 @@ public class App {
 			Registry locateRegistry = LocateRegistry.getRegistry();
 			Server stub = (Server) UnicastRemoteObject.exportObject(server, 0);
 			locateRegistry.rebind("server", stub);
-			System.out.println("Servidor Iniciado");
+			System.out.println("Servidor Iniciado correctamente");
+			Room salaUno = Room.initializeRooms("Fichas", 25);
+			Room salaDos = Room.initializeRooms("Fichas", 100);
+			Room salaTres = Room.initializeRooms("Fichas", 250);
+			Room salaCuatro = Room.initializeRooms("Fichas", 500);
+			Room salaCinco = Room.initializeRooms("Fichas", 1000);
 		} catch (RemoteException e) {
 			LOGGER.error(e);
 		}
+		
+		
 	}
+
 }

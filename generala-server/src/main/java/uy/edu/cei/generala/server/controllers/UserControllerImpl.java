@@ -10,6 +10,8 @@ import uy.edu.cei.generala.common.notifications.GameNotificationType;
 import uy.edu.cei.generala.common.server.controllers.UserController;
 import uy.edu.cei.generala.domain.UserModel;
 import uy.edu.cei.generala.server.services.UserService;
+import uy.edu.cei.generala.server.services.impl.UserServiceInDBImpl;
+import uy.edu.cei.generala.server.services.impl.UserServiceInMemoryImpl;
 
 public class UserControllerImpl extends UnicastRemoteObject implements UserController {
 
@@ -17,18 +19,42 @@ public class UserControllerImpl extends UnicastRemoteObject implements UserContr
 	 * Default UID
 	 */
 	private static final long serialVersionUID = 1L;
+	private UserService userservice;
 	private List<Observer> observers;
+	
+	public UserService getUserservice() {
+		return userservice;
+	}
+
+	public void setUserservice(UserService userservice) {
+		this.userservice = userservice;
+	}
+
+	public List<Observer> getObservers() {
+		return observers;
+	}
+
+	public void setObservers(List<Observer> observers) {
+		this.observers = observers;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 
 	public UserControllerImpl(List<Observer> observers) throws RemoteException {
 		this.observers = observers;
+		this.userservice= UserServiceInDBImpl.getInstance();
 	}
 
 	@Override
 	public UserModel login(String username, String password) throws RemoteException {
-		System.out.println(String.format("username: %s, password: %s", username, password));
+		//System.out.println(String.format("username: %s, password: %s", username, password));
 		
 		UserService us = UserService.userServiceFactory();
-		UserModel userModel = us.findUserByUsername(username);
+		UserModel userModel = us.findUserByUsername(username, password);
 		if(userModel != null && 
 				userModel.getPassword().equals(password)) {
 			this.observers.forEach(o -> {
@@ -52,4 +78,6 @@ public class UserControllerImpl extends UnicastRemoteObject implements UserContr
 		
 		return null;
 	}
+
+	
 }
