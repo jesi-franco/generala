@@ -70,7 +70,7 @@ public class DicePanel extends JPanel implements ActionListener {
 		diePanel_5.setLocation(238, 206);
 		diePanel_5.setSize(88, 87);
 		add(diePanel_5);
-		
+/*		
 		for(DiePanel die : diceList)
 		{
 			if (die.mouseClicked()==true)
@@ -84,7 +84,7 @@ public class DicePanel extends JPanel implements ActionListener {
 				}
 			});
 		}
-		
+*/		
 		
 
 		JButton btnNewButton = new JButton("Jugar");
@@ -93,7 +93,8 @@ public class DicePanel extends JPanel implements ActionListener {
 				for(DiePanel die : diceList)
 				{
 					do {
-						die.animate();						
+						die.animate();	
+						
 					}					
 					while (die.isSelected(die)!=true); 					
 				}
@@ -167,27 +168,6 @@ public class DicePanel extends JPanel implements ActionListener {
 		comodin.setBounds(6, 280, 109, 23);
 		add(comodin);
 		
-		
-		ButtonGroup radioButtonGroup = new ButtonGroup();
-		radioButtonGroup.add(Par);
-		radioButtonGroup.add(Trio);
-		radioButtonGroup.add(Pocker);
-		radioButtonGroup.add(Full);
-		radioButtonGroup.add(escCorta);
-		radioButtonGroup.add(escLarga);
-		radioButtonGroup.add(Generala);
-		radioButtonGroup.add(sumaUno);
-		radioButtonGroup.add(sumaDos);
-		radioButtonGroup.add(sumaTres);
-		radioButtonGroup.add(sumaCuatro);
-		radioButtonGroup.add(sumaCinco);
-		radioButtonGroup.add(sumaSeis);
-		radioButtonGroup.add(comodin);
-		
-		JButton btnNewButton_1 = new JButton("Tirar");
-		btnNewButton_1.setBounds(222, 310, 89, 23);
-		add(btnNewButton_1);
-		
 		JLabel lblLbld = new JLabel("lblD1");
 		lblLbld.setBounds(151, 14, 46, 14);
 		lblLbld.setVisible(false);
@@ -212,6 +192,53 @@ public class DicePanel extends JPanel implements ActionListener {
 		lblLbld_4.setBounds(194, 207, 46, 14);
 		lblLbld_4.setVisible(false);
 		add(lblLbld_4);
+		
+		
+		ButtonGroup radioButtonGroup = new ButtonGroup();
+		radioButtonGroup.add(Par);
+		radioButtonGroup.add(Trio);
+		radioButtonGroup.add(Pocker);
+		radioButtonGroup.add(Full);
+		radioButtonGroup.add(escCorta);
+		radioButtonGroup.add(escLarga);
+		radioButtonGroup.add(Generala);
+		radioButtonGroup.add(sumaUno);
+		radioButtonGroup.add(sumaDos);
+		radioButtonGroup.add(sumaTres);
+		radioButtonGroup.add(sumaCuatro);
+		radioButtonGroup.add(sumaCinco);
+		radioButtonGroup.add(sumaSeis);
+		radioButtonGroup.add(comodin);
+		
+		JButton btnNewButton_1 = new JButton("Tirar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int valueD1 = generateNumber(); 
+				diePanel_1.setValue(valueD1);
+				lblLbld.setText(String.valueOf(valueD1));
+
+				int valueD2 = generateNumber(); 
+				diePanel_1.setValue(valueD1);
+				lblLbld_1.setText(String.valueOf(valueD2));
+				
+				int valueD3 = generateNumber(); 
+				diePanel_1.setValue(valueD1);
+				lblLbld_2.setText(String.valueOf(valueD3));
+				
+				int valueD4 = generateNumber(); 
+				diePanel_1.setValue(valueD1);
+				lblLbld_3.setText(String.valueOf(valueD4));
+				
+				int valueD5 = generateNumber(); 
+				diePanel_1.setValue(valueD1);
+				lblLbld_4.setText(String.valueOf(valueD5));		
+				
+			}
+		});
+		btnNewButton_1.setBounds(222, 310, 89, 23);
+		add(btnNewButton_1);
+		
+	
 		
 	
 		

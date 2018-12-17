@@ -28,11 +28,15 @@ import javax.swing.SpringLayout;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
 
 public class GameFrame extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel panel; 
 	private DicePanel dicepanel;
+	private DicePanel dicepanel_1;
 
 	/**
 	 * Launch the application.
@@ -82,16 +86,8 @@ public class GameFrame extends JFrame {
 		lbllogo.setBounds(10, 254, 92, 80);
 		layeredPane.add(lbllogo);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(112, 11, 429, 323);
-		layeredPane.add(panel);
-		
 		dicepanel = new DicePanel();
 		dicepanel.setVisible(true);
-		dicepanel = new DicePanel();
-		panel.add(dicepanel);
 		
 		
 		
@@ -246,5 +242,21 @@ public class GameFrame extends JFrame {
 		sl_panel_4.putConstraint(SpringLayout.SOUTH, panel_7, -10, SpringLayout.SOUTH, panel_4);
 		sl_panel_4.putConstraint(SpringLayout.EAST, panel_7, 7, SpringLayout.EAST, panel_6);
 		panel_4.add(panel_7);
+		
+//		JPanel panel = new JPanel();
+//		panel.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+//		panel.setBackground(Color.WHITE);
+//		panel.setBounds(112, 11, 429, 323);
+//		layeredPane.add(panel);
+		
+		panel = new JPanel(); 
+		layeredPane.add(panel);
+		panel.setBounds(112, 11, 435, 323);
+		panel.setVisible(true);
+		dicepanel_1 = new DicePanel();
+		panel.add(dicepanel_1);
+		dicepanel_1.setBounds(112, 11, 435, 323);
+		dicepanel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 	}
 }
